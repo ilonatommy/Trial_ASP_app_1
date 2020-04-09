@@ -214,6 +214,7 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\DeleteForbidden.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

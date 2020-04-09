@@ -17,5 +17,6 @@ namespace Trial_app_1.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Director { get; set; }
+        public string Picture { get; set; }
     }
 }

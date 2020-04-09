@@ -12,6 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Director" Type="nchar" MaxLength="50" Nullable="false" />
+		  <Property Name="Picture" Type="nchar" MaxLength="100" Nullable="true" />
         </EntityType>
         <EntityContainer Name="Movies_DBModelStoreContainer">
           <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
@@ -28,6 +29,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Director" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+		  <Property Name="Picture" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="true" />
         </EntityType>
         <EntityContainer Name="Movies_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Movies" EntityType="Movies_DBModel.Movie" />
@@ -44,6 +46,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Director" ColumnName="Director" />
+				<ScalarProperty Name="Picture" ColumnName="Picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

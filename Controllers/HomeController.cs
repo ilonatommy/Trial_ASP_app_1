@@ -86,10 +86,15 @@ namespace Trial_app_1.Controllers
         {
             try
             {
-                var movieToDelete = _db.Movies.Find(id);
-                _db.Movies.Remove(movieToDelete);
-                _db.SaveChanges();         
-                return RedirectToAction("Index");
+                if (id == 0 || id == 3 || id == 4 || id == 8)
+                    return RedirectToAction("DeleteForbidden");
+                else
+                {
+                    var movieToDelete = _db.Movies.Find(id);
+                    _db.Movies.Remove(movieToDelete);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
@@ -103,6 +108,11 @@ namespace Trial_app_1.Controllers
         }
 
         public ActionResult Error()
+        {
+            return View();
+        }
+
+        public ActionResult DeleteForbidden()
         {
             return View();
         }
