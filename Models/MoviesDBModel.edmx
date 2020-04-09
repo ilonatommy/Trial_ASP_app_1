@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Director" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -25,11 +25,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Director" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="Movies_DBEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Movies_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Movies" EntityType="Movies_DBModel.Movie" />
         </EntityContainer>
       </Schema>
@@ -37,7 +37,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Movies_DBModelStoreContainer" CdmEntityContainer="Movies_DBEntities1">
+        <EntityContainerMapping StorageEntityContainer="Movies_DBModelStoreContainer" CdmEntityContainer="Movies_DBEntities">
           <EntitySetMapping Name="Movies">
             <EntityTypeMapping TypeName="Movies_DBModel.Movie">
               <MappingFragment StoreEntitySet="Movies">

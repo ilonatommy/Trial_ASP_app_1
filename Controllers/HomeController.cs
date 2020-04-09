@@ -19,7 +19,8 @@ namespace Trial_app_1.Controllers
         // GET: Home/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var movieToDetail = _db.Movies.Find(id);
+            return View(movieToDetail);
         }
 
         // GET: Home/Create
@@ -33,7 +34,7 @@ namespace Trial_app_1.Controllers
         public ActionResult Create([Bind(Exclude ="Id")] Movie movieToCreate)
         {
             try
-            {
+            { 
                 _db.Movies.Add(movieToCreate);
                 _db.SaveChanges();
 
@@ -73,17 +74,21 @@ namespace Trial_app_1.Controllers
         // GET: Home/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var movieToDelete = _db.Movies.Find(id);
+            if (movieToDelete == null)
+                return View("Index");
+            return View(movieToDelete);
         }
 
         // POST: Home/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, string confirmButton)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                var movieToDelete = _db.Movies.Find(id);
+                _db.Movies.Remove(movieToDelete);
+                _db.SaveChanges();         
                 return RedirectToAction("Index");
             }
             catch

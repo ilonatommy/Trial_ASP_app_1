@@ -16,7 +16,7 @@ namespace Trial_app_1.Models
     public partial class Movies_DBEntities : DbContext
     {
         public Movies_DBEntities()
-            : base("name=Movies_DBEntities1")
+            : base("name=Movies_DBEntities")
         {
         }
     
