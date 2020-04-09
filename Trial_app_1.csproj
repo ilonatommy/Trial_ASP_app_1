@@ -163,6 +163,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\about.jfif" />
+    <Content Include="Content\Images\back_icon.jpg" />
+    <Content Include="Content\Images\create_new_icon.jpg" />
+    <Content Include="Content\Images\delete_icon.jpg" />
+    <Content Include="Content\Images\details_icon.jfif" />
+    <Content Include="Content\Images\edit_icon.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

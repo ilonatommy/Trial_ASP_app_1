@@ -31,6 +31,9 @@
     <img src=@Html.DisplayFor(model => model.Picture) alt=@Html.DisplayFor(model => model.Picture) style="width:200px;height:300px;"/>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <br />
+    <a href='@Url.Action("Edit", "Home", new { id = Model.Id })'>
+        <img src="~/Content/Images/edit_icon.jpg" style="width:30px;height:30px" />
+    </a>|
     @Html.ActionLink("Back to List", "Index")
 </p>

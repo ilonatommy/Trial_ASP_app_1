@@ -7,9 +7,9 @@
 
 <h2>Movies list</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href='@Url.Action("Create", "Home")'>
+    <img src="~/Content/Images/create_new_icon.jpg" style="width:35px;height:35px" />
+</a>
 <table class="table">
     <tr>
         <th>
@@ -21,20 +21,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Director)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                <a href='@Url.Action("Edit", "Home", new { id = item.Id })'>
+                    <img src="~/Content/Images/edit_icon.jpg" style="width:30px;height:30px" />
+                </a>|
+                <a href='@Url.Action("Details", "Home", new { id = item.Id })'>
+                    <img src="~/Content/Images/details_icon.jfif" style="width:30px;height:30px" />
+                </a> |
+                <a href='@Url.Action("Delete", "Home", new { id = item.Id })'>
+                    <img src="~/Content/Images/delete_icon.jpg" style="width:30px;height:30px" />
+                </a>
+            </td>
+        </tr>
+    }
 
 </table>
