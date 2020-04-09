@@ -96,5 +96,15 @@ namespace Trial_app_1.Controllers
                 return View();
             }
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }
