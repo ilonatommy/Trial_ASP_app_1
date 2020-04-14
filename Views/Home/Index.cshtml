@@ -22,32 +22,41 @@
                         @Html.ActionLink("Director", "Index", new { sortOrder = ViewBag.Director })
                     </th>
                     <th>
-                        <input type="text" placeholder="Search..">
+                        @Html.TextBox("searchPhrase", "Search..") 
+
                     </th>
                 </tr>
             }
 
-            @foreach (var item in Model)
+            @if(Model.Count() == 0)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Director)
-                    </td>
-                    <td>
-                        <a class="table_button" href='@Url.Action("Delete", "Home", new { id = item.Id })'>
-                            <img class="rectangular_button_icon" src="~/Content/Images/delete_icon.jpg" />
-                        </a>
-                        <a class="table_button" href='@Url.Action("Details", "Home", new { id = item.Id })'>
-                            <img class="rectangular_button_icon" src="~/Content/Images/details_icon.jfif" />
-                        </a>
-                        <a class="table_button" href='@Url.Action("Edit", "Home", new { id = item.Id })'>
-                            <img class="rectangular_button_icon" src="~/Content/Images/edit_icon.jpg" />
-                        </a>
-                    </td>
-                </tr>
+            <tr>
+                <td>No match.</td>
+            </tr>
+            }
+            else{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Director)
+                        </td>
+                        <td>
+                            <a class="table_button" href='@Url.Action("Delete", "Home", new { id = item.Id })'>
+                                <img class="rectangular_button_icon" src="~/Content/Images/delete_icon.jpg" />
+                            </a>
+                            <a class="table_button" href='@Url.Action("Details", "Home", new { id = item.Id })'>
+                                <img class="rectangular_button_icon" src="~/Content/Images/details_icon.jfif" />
+                            </a>
+                            <a class="table_button" href='@Url.Action("Edit", "Home", new { id = item.Id })'>
+                                <img class="rectangular_button_icon" src="~/Content/Images/edit_icon.jpg" />
+                            </a>
+                        </td>
+                    </tr>
+                }
             }
 
         </table>

@@ -11,7 +11,7 @@ namespace Trial_app_1.Controllers
     {        
         private Movies_DBEntities _db = new Movies_DBEntities();
         // GET: Home
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchPhrase)
         {
             ViewBag.MovieTitle = (String.IsNullOrEmpty(sortOrder)) ? "Title_desc" : "";
             ViewBag.Director = sortOrder == "Director" ? "Director_desc" : "Director";
@@ -33,7 +33,13 @@ namespace Trial_app_1.Controllers
                     movies = movies.OrderBy(m => m.Title);
                     break;
             }
-            return View(movies.ToList());
+
+             if(String.IsNullOrEmpty(searchPhrase)) return View(movies.ToList());
+             
+             return View(movies.Where(m => m.Title.Contains(searchPhrase) || 
+                                 m.Director.Contains(searchPhrase))
+                                .ToList());
+             
         }
 
         // GET: Home/Details/5

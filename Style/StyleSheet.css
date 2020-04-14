@@ -6,7 +6,7 @@
 }
 .table {    
 }
-.table input[type=text] {
+.table input{
     float: right;
     padding: 0px;
     border: none;
