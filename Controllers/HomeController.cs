@@ -8,12 +8,32 @@ using Trial_app_1.Models;
 namespace Trial_app_1.Controllers
 {
     public class HomeController : Controller
-    {
+    {        
         private Movies_DBEntities _db = new Movies_DBEntities();
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(_db.Movies.ToList());
+            ViewBag.MovieTitle = (String.IsNullOrEmpty(sortOrder)) ? "Title_desc" : "";
+            ViewBag.Director = sortOrder == "Director" ? "Director_desc" : "Director";
+
+            var movies = from m in _db.Movies select m;
+
+            switch (sortOrder)
+            {
+                case "Title_desc":
+                    movies = movies.OrderByDescending(m => m.Title);
+                    break;
+                case "Director":
+                    movies = movies.OrderBy(m => m.Director);
+                    break;
+                case "Director_desc":
+                    movies = movies.OrderByDescending(m => m.Director);
+                    break;
+                default:
+                    movies = movies.OrderBy(m => m.Title);
+                    break;
+            }
+            return View(movies.ToList());
         }
 
         // GET: Home/Details/5

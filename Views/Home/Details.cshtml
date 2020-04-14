@@ -5,35 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+    <div class="page">
+        <h2>Details</h2>
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+        <div>
+            <h4>Movie</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Director)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Director)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Director)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Director)
+                </dd>
 
-    </dl>
-    <img src=@Html.DisplayFor(model => model.Picture) alt=@Html.DisplayFor(model => model.Picture) style="width:200px;height:300px;"/>
-</div>
-<p>
-    <br />
-    <a href='@Url.Action("Edit", "Home", new { id = Model.Id })'>
-        <img src="~/Content/Images/edit_icon.jpg" style="width:30px;height:30px" />
-    </a>|
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </dl>
+            <img src=@Html.DisplayFor(model => model.Picture) alt=@Html.DisplayFor(model => model.Picture) style="width:200px;height:300px;" />
+        </div>
+        <p>
+            <br />
+            <a href='@Url.Action("Edit", "Home", new { id = Model.Id })'>
+                <img src="~/Content/Images/edit_icon.jpg" style="width:30px;height:30px" />
+            </a>|
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>

@@ -1,0 +1,30 @@
+﻿body {
+}
+.page{
+    margin-left:10%;
+    margin-right:10%;
+}
+.table {    
+}
+.table input[type=text] {
+    float: right;
+    padding: 0px;
+    border: none;
+    margin-top: 0px;
+    margin-right: 0px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+.table_button{
+    float:right;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.rectangular_button_icon{
+    width: 30px;
+    height: 30px;
+}
+.round_button_icon{
+    width: 35px;
+    height: 35px;
+}

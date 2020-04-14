@@ -5,43 +5,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movies list</h2>
+    <div class="page">
+        <h2>Movies list</h2>
 
-<a href='@Url.Action("Create", "Home")'>
-    <img src="~/Content/Images/create_new_icon.jpg" style="width:35px;height:35px" />
-</a>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Director)
-        </th>
-        <th></th>
-    </tr>
+        <a href='@Url.Action("Create", "Home")'>
+            <img class="round_button_icon" src="~/Content/Images/create_new_icon.jpg" style="width:35px;height:35px" />
+        </a>
+        <table class="table">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+            {
+                <tr>
+                    <th>
+                        @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.MovieTitle })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Director", "Index", new { sortOrder = ViewBag.Director })
+                    </th>
+                    <th>
+                        <input type="text" placeholder="Search..">
+                    </th>
+                </tr>
+            }
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Director)
-            </td>
-            <td>
-                <a href='@Url.Action("Edit", "Home", new { id = item.Id })'>
-                    <img src="~/Content/Images/edit_icon.jpg" style="width:30px;height:30px" />
-                </a>|
-                <a href='@Url.Action("Details", "Home", new { id = item.Id })'>
-                    <img src="~/Content/Images/details_icon.jfif" style="width:30px;height:30px" />
-                </a> |
-                <a href='@Url.Action("Delete", "Home", new { id = item.Id })'>
-                    <img src="~/Content/Images/delete_icon.jpg" style="width:30px;height:30px" />
-                </a>
-            </td>
-        </tr>
-    }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Director)
+                    </td>
+                    <td>
+                        <a class="table_button" href='@Url.Action("Delete", "Home", new { id = item.Id })'>
+                            <img class="rectangular_button_icon" src="~/Content/Images/delete_icon.jpg" />
+                        </a>
+                        <a class="table_button" href='@Url.Action("Details", "Home", new { id = item.Id })'>
+                            <img class="rectangular_button_icon" src="~/Content/Images/details_icon.jfif" />
+                        </a>
+                        <a class="table_button" href='@Url.Action("Edit", "Home", new { id = item.Id })'>
+                            <img class="rectangular_button_icon" src="~/Content/Images/edit_icon.jpg" />
+                        </a>
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+    </div>
